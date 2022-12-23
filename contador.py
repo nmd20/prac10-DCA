@@ -39,7 +39,7 @@ def menu_principal():
     generar_menu(opciones, '4')
 
 
- def accion1():
+def accion1():
     print('Has elegido la opción 1')
     print("¿Cómo se llama el archivo?")
     nombre = input()
