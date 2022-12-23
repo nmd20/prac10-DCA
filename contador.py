@@ -33,10 +33,11 @@ def menu_principal():
         '1': ('Opción 1: Contador de palabras', accion1),
         '2': ('Opción 2: Contador de letras', accion2),
         '3': ('Opción 3: Contador de una letra', accion3),
-        '4': ('Salir', salir)
+        '4': ('Opción 4: Contador de una letra', accion4),
+        '5': ('Salir', salir)
     }
 
-    generar_menu(opciones, '4')
+    generar_menu(opciones, '5')
 
 
 def accion1():
@@ -75,6 +76,20 @@ def accion3():
         contador += counter[letra]
     
     print("el archivo contiene: " + str(contador) + "caracteres " + letra)
+
+def accion4():
+    print('Has elegido la opción 3')
+    print("¿Cómo se llama el archivo?")
+    nombre = input()
+    text = open(nombre).read()
+    contador = 0; 
+    words = text.split()
+    print("escribe la palabra: ")
+    palabra = input()
+    for word in words:
+        contador += word.count(palabra)
+    
+    print("el archivo contiene: " + str(contador) + "palabras " + palabra)
 
 
 def salir():
