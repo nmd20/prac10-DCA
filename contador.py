@@ -1,20 +1,7 @@
 import csv
 import string
+from collections import Counter
 
-"""print("OPCION 1: Contador de palabras")
-print("OPCION 2: Contador de letras")
-print("OPCION 3: Contador de una sola letra")
-print("OPCION:")
-opcion = input
-
-if opcion==1:
-    
-    print("¿Cómo se llama el archivo?")
-    nombre = input()
-    text = open(nombre).read()
-    words = text.split()
-    num_words = len(words)
-    print("el archivo contiene: " + str(num_words) + "palabras")"""
     
 def mostrar_menu(opciones):
     print('Seleccione una opción:')
@@ -45,7 +32,7 @@ def menu_principal():
     opciones = {
         '1': ('Opción 1: Contador de palabras', accion1),
         '2': ('Opción 2: Contador de letras', accion2),
-        '3': ('Opción 3', accion3),
+        '3': ('Opción 3: Contador de una letra', accion3),
         '4': ('Salir', salir)
     }
 
@@ -70,14 +57,24 @@ def accion2():
     contador = 0; 
     words = text.split()
     for word in words:
-        """while word[contador:]:
-            contador+=1"""
         contador += len(word)
     
     print("el archivo contiene: " + str(contador) + "caracteres")
 
 def accion3():
     print('Has elegido la opción 3')
+    print("¿Cómo se llama el archivo?")
+    nombre = input()
+    text = open(nombre).read()
+    contador = 0; 
+    words = text.split()
+    print("escribe la letra: ")
+    letra = input()
+    for word in words:
+        counter = Counter(word)
+        contador += counter[letra]
+    
+    print("el archivo contiene: " + str(contador) + "caracteres " + letra)
 
 
 def salir():
